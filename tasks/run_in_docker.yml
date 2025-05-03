@@ -1,6 +1,6 @@
 ---
 - name: Start docker postgres exporter container
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     state: present
     project_name: prometheus_postgres_exporter
     definition:
@@ -24,7 +24,7 @@
   when: postgres_exporter_containers is undefined
 
 - name: Start docker postgres exporter few containers
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     state: present
     project_name: "{{ item.postgres_exporter_container_name }}"
     definition:
